@@ -1,0 +1,137 @@
+---
+title: "Pengaruh Ekspor Logam Dasar Mulia Indonesia ke Jepang terhadap GDP Indonesia Tahun 2015-2021"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Aisyah Tsabita"
+date: 2023-01-20
+number-sections: true
+format: 
+  html: default
+  docx: default
+editor: visual
+---
+
+## Pendahuluan
+
+### Latar belakang
+
+Untuk mewujudkan Indonesia sebagai negara industri yang kuat dan mapan, kontribusi sektor industri pengolahan harus meningkat tiap tahunnya. Salah satu sub sektor industri pengolahan yang potensial untuk ditingkatkan kontribusinya adalah industri pengolahan logam mulia atau industri perhiasan logam mulia. Selain itu, mayarakatnya memiliki kemampuan dalam mengolah logam mulia menjadi perhiasan. Penelitian ini bertujuan untuk menganalisis produksi logam dasar mulia di Indonesia dan perkembangan ekspor logam dasar mulia Indonesia ke negara tujuan ekspor yaitu Jepang serta menganalisis daya saing ekspor logam dasar mulia Indonesia di pasar Jepang. Penelitian ini menggunakan data sekunder untuk menjawab tujuan penelitian yang sudah dirumuskan. Data yang digunakan berupa data deret waktu (time series) yang menunjukkan perkembangan produksi batubara nasional. Periode data yang digunakan yaitu periode tahun 2017-2021, dengan negara tujuan ekspor yaitu Jepang.
+
+Metode identifikasi masalah ini menggunakan metode fishbone diagram untuk mengidentifikasi permasalahan topik ini. Berikut tabel fishbone topik ini
+
+### Ruang lingkup
+
+Lingkup bahasan permasalahan ini mengenai banyaknya ekspor logam dasar mulia Indonesisa yang di ekspor ke Jepang selama periode tahun 2015-2021 yang dibandingkan dengan jumlah GDP Indonesia dalam periode yang sama, data-data ini didapat dari World Trade Bank dan BPS. Ruang lingkup ini tidak terlalu bayak karena referensi dan variabel yang mencukupi.
+
+### Rumusan masalah
+
+1.    Bagaimana keunggulan ekspor logam dasar mulia?
+
+2.     Apakah Indonesia harus mempertahankan ekspornya atau tidak?
+
+3.     Bagaimanakah pengaruh ekspor logam dasar mulia terhadap GDP Indonesia?
+
+### Tujuan dan manfaat penelitian
+
+Tujuan adanya penelitian ini untukmengetahui seberapa besar pengaru ekspor logam dasra mulia Indonesia ke Jepang dalam periode tahun 2015-2021 terhadap GDP Indonesia dalam periode yang sama dan juga pembaca dapat mengetahui bahwa ekspor logam dasar mulia yang dilakukan Indonesia berpotensi baik dan layak untuk dimaksimalkan dalam kapasitas ekspornya ke Jepang. Manfaatnya agar pembaca menegerti seberapa besar pengaruh ekspor logam dasar mulia yang dilakukan pemerintah maupun masyarakat terhdapa GDP Indonesia.
+
+### Package
+
+Ini tidak wajib ada di packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+setwd('D:/aisah')
+library('tidyverse')
+library('readxl')
+```
+
+## Studi pustaka
+
+**Ekspor**
+
+Menurut Amir M.S., Ekspor adalah mengeluarkan barang dari peredaran dalam masyarakat dan mengirimkan ke luar negeri sesuai ketentuan pemerintah dan mengharapkan pembayaran dalam valuta asing.
+
+**Logam Dasar Mulia** Menurut Dr. Ahmad Fatih, Logam adalah unsur yang mempunyai sifat fisik umum seperti berwujud padat, bertitik leleh tinggi, lentur (tidak mudah patah), mudah di bentuk (dapat di tempa dan ditarik), penghantar panas dan listrik yang baik, dan dapat dibuat paduan antar sesama logam.  
+
+**GDP**
+
+Menurut Dumairy (1995) dalam muslikhah (2008) terdapat tiga macam pendekatan dalam melihat ukuran GDP yaitu menurut pendekatan produksi, pendekatan pendapatan dan pendekatan pengeluaran. Menurut pendekatan produksi, GDP adalah jumlah nilai barang dan jasa akhir yang dihasilkan oleh berbagai unit produksi di wilayah suatu negara dalam jangka waktu satu tahun.
+
+## Metode penelitian
+
+### Data
+
+Data Jumlah Ekspor Logam Dasar Mulia Indonesia ke Jepang
+
+| Tahun | Jumlah   |
+|-------|----------|
+| 2015  | 1.320,30 |
+| 2016  | 1.448,40 |
+| 2017  | 1.195,60 |
+| 2018  | 986,10   |
+| 2019  | 1.429,50 |
+| 2020  | 1.433,00 |
+| 2021  | 1.592,40 |
+
+Data GDP Indonesia
+
+| Tahun | GDP              |
+|-------|------------------|
+| 2015  | 860854235065,079 |
+| 2016  | 931877364177,742 |
+| 2017  | 1015618742565,81 |
+| 2018  | 1042271531011,99 |
+| 2019  | 1119099868265,25 |
+| 2020  | 1058688935454,78 |
+| 2021  | 1186092991320,04 |
+
+![](poltekapp.jpg)
+
+penelitian ini menggunakan data:
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+dat<-read_excel('111.xlsx')
+head(dat)
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 2 variabel independen. Penelitian ini merbaksud mencari hubungan antara gdp dan ekspor. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah ekspor dan $x_t$ adalah gdp.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Dalam penelitian ini, saya menggunakan metode OLS 2 Variabel, oleh karena itu saya menghubungkan angka ekspor logam dasar mulia indonesia ke jepang dengan gdp indonesia pada tahun 2015-2021.
+
+```{r}
+library(readxl)
+dat<-read_excel('111.xlsx')
+head(dat)
+```
+
+### Analisis masalah
+
+Dapat dilihat dari tabel di bawah ini adalah hasil regresi:
+
+```{r}
+library(tidyverse)
+library(readxl)
+reg1<-lm(gdp~eks,data=dat)
+summary(reg1)
+```
+
+## Kesimpulan
+
+Dari data diatas dapat kita lihat bahwa setiap 1% ekspor logam dasar mulia indonesia ke jepang berpengaruh sebanyak 1.696e+08 (Rp.169.600.000.000) Terhadap GDP Indonesia pada tahun 2015-2021.
+
+## Referensi
+
+Dr. Ahmad Fatih, Kamus Lengkap Kimia, (Yogyakarta: Panji Pustaka, 2012), cet ke-1, h. 287. Fauziana, L. Mulyaningsih, A. Anggraeni, E. Cahola Y.M, S. Rofida, U. 2014. Keterkaitan Investasi Modal Terhadap GDP Indonesia. Economics Development Analysis Journal. Sutawijaya, Adrian. 2009. Pengaruh Ekspor Dan Investasi Terhadap Pertumbuhan Ekonomi Indonesia Tahun 1980-2006. Jurnal Fakultas Ekonomi Universitas Terbuka Jakarta.
